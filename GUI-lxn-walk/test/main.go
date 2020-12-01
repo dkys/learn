@@ -14,6 +14,9 @@ func main() {
 	window.SetX((int(win.GetSystemMetrics(0)) - window.Width()) / 2)
 	window.SetY((int(win.GetSystemMetrics(1)) - window.Height()) / 2)
 
+	//window.SetMinMaxSize(walk.Size{400, 300}, walk.Size{410, 310})
+	//window.SetMinMaxSizePixels(walk.Size{400, 300}, walk.Size{410, 310})
+	//window.SetFullscreen(true)
 	// 设置窗口图标
 	img, _ := walk.ImageFrom(`check.ico`)
 	window.SetIcon(img)
