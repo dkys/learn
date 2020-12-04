@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/lxn/walk"
-	. "github.com/lxn/walk/declarative"
 	"github.com/lxn/win"
 	"io"
 	"os"
@@ -26,7 +25,7 @@ func main() {
 	mw.SetY((int(win.GetSystemMetrics(win.SM_CYSCREEN)) - mw.Height()) / 2)
 
 	// 窗口布局 ： 纵向排列
-	l, _ := VBox{}.Create()
+	l := walk.NewVBoxLayout()
 	mw.SetLayout(l)
 
 	// 添加一个分组容器
@@ -34,7 +33,7 @@ func main() {
 	gbox.SetSize(walk.Size{300, 20})                            // 设置容器尺寸（默认）
 	gbox.SetMinMaxSize(walk.Size{300, 50}, walk.Size{500, 500}) // 设置容器最大和最小尺寸
 	// 设置分组容器布局： 横向排列
-	l2, _ := HBox{}.Create()
+	l2 := walk.NewHBoxLayout()
 	gbox.SetLayout(l2)
 
 	// 在分组容器中添加输入框

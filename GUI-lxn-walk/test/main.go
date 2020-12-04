@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/lxn/walk"
-	. "github.com/lxn/walk/declarative"
 	"github.com/lxn/win"
 	"strings"
 )
@@ -24,13 +23,13 @@ func main() {
 	window.SetTitle(`hello world`)
 
 	// 布局设置
-	l, _ := VBox{}.Create() //样式，纵向
+	l := walk.NewVBoxLayout() //样式，纵向
 	window.SetLayout(l)
 
 	// 设置窗体的宽高
 	window.SetSize(walk.Size{400, 300})
 
-	// 创建容器,容器内元素纵向分割排列
+	// 纵向分割排列
 	box, _ := walk.NewHSplitter(window)
 
 	// 创建文本框1
@@ -40,7 +39,7 @@ func main() {
 
 	// 创建文本框2
 	edit2, _ := walk.NewTextEdit(box)
-	edit2.SetReadOnly(true)
+	edit2.SetReadOnly(true) // 设置文本框只读
 	edit2.SetX(10)
 	edit2.SetY(10)
 
@@ -51,6 +50,7 @@ func main() {
 	btn1.SetHeight(30)
 	btn1.SetX(10)
 	btn1.SetY(60)
+	// 按钮点击事件
 	btn1.Clicked().Attach(func() {
 		edit2.SetText(strings.ToUpper(edit1.Text()))
 	})
